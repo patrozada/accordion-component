@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.scss';
 import {fetchInfo} from './data/data';
+import Accordion from  './components/Accordion';
 
 class App extends React.Component {
   constructor(props) {
@@ -32,7 +33,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <p>Accordion to be</p>
+          <Accordion
+            allCategories = {this.state.allCategories}
+            allServices = {this.state.allServices}
+          />
         </header>
       </div>
     );
