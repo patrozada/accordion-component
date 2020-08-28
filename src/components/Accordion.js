@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import Category from './Category';
 
 class Accordion extends React.Component {
   constructor(props) {
@@ -10,7 +11,17 @@ class Accordion extends React.Component {
     const {allCategories, allServices} = this.props;
     return (
       <div>
-        This is the accordion container
+        Servicios disponibles
+        <ul>
+          {allCategories.map(category => (
+            <li key={category.Id}>
+              <Category
+                caption = {category.Caption}
+                allServices = {allServices}
+              />
+            </li>
+          ))}
+        </ul>
       </div>
     );
   }
