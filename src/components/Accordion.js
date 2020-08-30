@@ -16,6 +16,7 @@ class Accordion extends React.Component {
           {allCategories.map(category => (
             <li key={category.Id}>
               <Category
+                id = {category.Id}
                 caption = {category.Caption}
                 allServices = {allServices}
               />
