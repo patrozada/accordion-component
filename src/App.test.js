@@ -1,8 +1,7 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
-import App from './App';
 import Accordion from './components/Accordion'
 
 let container = null;
@@ -19,11 +18,6 @@ afterEach(() => {
   container = null;
 });
 
-test('renders app title', () => {
-  const { getByText } = render(<App />);
-  const titleElement = getByText(/Servicios disponibles/i);
-  expect(titleElement).toBeInTheDocument();
-});
 
 describe ('Accordion', () => {
   const testCategories = [
