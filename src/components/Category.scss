@@ -1,0 +1,29 @@
+.category{
+  &__header{
+    padding: 10px 5px;
+    border-bottom: $light-green solid 2px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__title{
+    font-family: $title-font;
+    color: $mid-green;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 38px;
+    
+    &--chevrondown{
+      @extend .category__title;
+      font-weight: 400;
+      transform: rotate(180deg) scaleX(1.5) scaleY(0.7);
+    }
+    &--chevronup{
+      @extend .category__title;
+      font-weight: 400;
+      transform: scaleX(1.5) scaleY(0.7);
+    }
+  }
+}
+.hidden{
+  display: none;
+}
