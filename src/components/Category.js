@@ -43,7 +43,7 @@ function Category(props) {
         <h3 className="category__title">{caption}</h3>
         <p className={chevronPosition}>^</p>
       </div>
-      <ul className={isVisible}>
+      <ul className={isVisible + " category__section"}>
         <Services
           paidServices = {allServices.filter(service => (service.serviceCategoryId === id && !service.serviceFree))}
           freeServices = {allServices.filter(service => (service.serviceCategoryId === id && service.serviceFree))}
