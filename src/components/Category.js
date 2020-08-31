@@ -1,31 +1,42 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Services from './Services';
 
 function Category(props) {
   const {caption, id, allServices} = props;
   const [isOpen, setState] = useState();
   const [isVisible, setVisibility] = useState();
-  const handlestateChange = () => {
-    setState(!isOpen);
-  }
-  const changeClassName = () => {
-    setVisibility(isOpen ? "hidden" : null)
-  }
-  const OpenRef = useRef("2");
-  const updateRef = (currentId) => {
-    OpenRef.current = currentId
-  }
 
-  console.log("is: " + OpenRef.current + " isOpen: " + isOpen + " isVisible:" + isVisible)
+  const handleOpenSections = (shouldBeOpen) => {
+    if (shouldBeOpen === id && !isOpen) {
+      setState(true);
+      setVisibility(null)
+    } else {
+      setState(false);
+      setVisibility("hidden")
+    }
+  };
+
+  const handleStateChange = () => {
+    const data = {
+      isOpen: !isOpen,
+      targetId: id
+    }
+    props.handleCategoryClick(data);
+  };
+
+  const handleClick = () => {
+    handleStateChange();
+    handleOpenSections(props.shouldBeOpen);
+  };
+
   useEffect(()=>{
-    setState(props.id === OpenRef.current ? true : false);
-    setVisibility(props.id === OpenRef.current ? null : "hidden");
-    updateRef(props.id);
-  }, [props.id]);
+    handleOpenSections(props.shouldBeOpen)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.shouldBeOpen]);
 
   return (
     <div>
-      <h3 onClick={()=>(handlestateChange(), changeClassName())}>{caption}</h3>
+      <h3 onClick={()=>handleClick()}>{caption}</h3>
       <div className={isVisible}>
         <Services
           paidServices = {allServices.filter(service => (service.serviceCategoryId === id && !service.serviceFree))}
