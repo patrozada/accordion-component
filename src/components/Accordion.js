@@ -11,11 +11,13 @@ const Accordion  = (props) => {
   const {allCategories, allServices} = props;
 
   return (
-    <div>
-      Servicios disponibles
+    <div className="accordion__wrapper">
+      <h2 className="accordion__title">
+        Servicios disponibles
+      </h2>
       <ul>
         {allCategories.map(category => (
-          <li key={category.Id}>
+          <li className="accordion__category" key={category.Id}>
             <Category
               id = {category.Id}
               caption = {category.Caption}

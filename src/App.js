@@ -31,13 +31,11 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
+      <div className="app__container">
           <Accordion
             allCategories = {this.state.allCategories}
             allServices = {this.state.allServices}
           />
-        </header>
       </div>
     );
   }

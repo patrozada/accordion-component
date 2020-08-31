@@ -5,14 +5,17 @@ function Category(props) {
   const {caption, id, allServices} = props;
   const [isOpen, setState] = useState();
   const [isVisible, setVisibility] = useState();
+  const [chevronPosition, setPosition] = useState("category__title--chevronup");
 
   const handleOpenSections = (shouldBeOpen) => {
     if (shouldBeOpen === id && !isOpen) {
       setState(true);
-      setVisibility(null)
+      setVisibility(null);
+      setPosition("category__title--chevrondown")
     } else {
       setState(false);
-      setVisibility("hidden")
+      setVisibility("hidden");
+      setPosition("category__title--chevronup")
     }
   };
 
@@ -35,15 +38,18 @@ function Category(props) {
   }, [props.shouldBeOpen]);
 
   return (
-    <div>
-      <h3 onClick={()=>handleClick()}>{caption}</h3>
-      <div className={isVisible}>
+    <React.Fragment>
+      <div className="category__header" onClick={()=>handleClick()}>
+        <h3 className="category__title">{caption}</h3>
+        <p className={chevronPosition}>^</p>
+      </div>
+      <ul className={isVisible + " category__section"}>
         <Services
           paidServices = {allServices.filter(service => (service.serviceCategoryId === id && !service.serviceFree))}
           freeServices = {allServices.filter(service => (service.serviceCategoryId === id && service.serviceFree))}
         />
-      </div>
-    </div>
+      </ul>
+    </React.Fragment>
   )
 }
 

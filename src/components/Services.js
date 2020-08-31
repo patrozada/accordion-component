@@ -3,10 +3,10 @@ import React from 'react';
 function Services(props) {
   const {paidServices, freeServices} = props;
   return (
-    <ul>
-      <li>
+    <React.Fragment>
+      <li className="service__title">
         Servicios gratuitos
-        <ul>
+        <ul className="service__list">
           {freeServices.map(service => (
             <li key={service.serviceId}>
               {service.serviceCaption}
@@ -14,9 +14,9 @@ function Services(props) {
           ))}
         </ul>
       </li>
-      <li>
+      <li className="service__title">
         Servicios de pago
-        <ul>
+        <ul className="service__list">
           {paidServices.map(service => (
             <li key={service.serviceId}>
               {service.serviceCaption}
@@ -24,7 +24,7 @@ function Services(props) {
           ))}
         </ul>
       </li>
-    </ul>
+    </React.Fragment>
   )
 }
 
