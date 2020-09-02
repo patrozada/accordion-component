@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "./",
   "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -30,5 +31,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/react": "^10.4.9"
   }
 }
