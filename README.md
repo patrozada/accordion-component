@@ -5,6 +5,7 @@ App created with ReactJS using hooks to manage the component state and React Tes
 ## Available Scripts
 
 In the project directory, you can run:
+*npm install* only the first time
 *npm start* to run the app in dev mode 
 *npm  run test* to run the test suite
 
